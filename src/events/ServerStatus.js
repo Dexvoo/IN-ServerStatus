@@ -61,7 +61,7 @@ module.exports = {
                         message.edit({ embeds: [liveStatusMessage] });
                     })
                 }
-                setTimeout(liveServerStatus, 1000 * FiveMEmbedUpdateTime)
+                setTimeout(liveServerStatus, 1000 * 60)
             }
             else
             {
