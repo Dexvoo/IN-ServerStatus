@@ -1,0 +1,6 @@
+.env
+node_modules/
+src/models/
+src/mymodels/
+src/myevents/
+src/mycommands/
