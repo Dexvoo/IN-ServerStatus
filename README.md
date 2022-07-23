@@ -2,6 +2,7 @@
 
 A discord bot that interacts with [cfx-api](https://github.com/PABLO-1610/cfx-api), Shows with a embed that updates every so often.
 
+<img align="right" src="https://imgur.com/5N3uHl2.png" height=30% width=40%>
 **How to install**
 
 ```bash
