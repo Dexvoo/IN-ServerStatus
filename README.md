@@ -8,7 +8,7 @@ A discord bot that interacts with [cfx-api](https://github.com/PABLO-1610/cfx-ap
 npm install
 ```
 
-Create a `.env` file and use the config below, Please fill in as much as you can.
+Create a `.env` file (at the root of the folder) and use the config below, Please fill in as much as you can.
 
 ```bash
 # Discord Bot Token
