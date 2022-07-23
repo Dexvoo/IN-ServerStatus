@@ -4,3 +4,4 @@ src/models/
 src/mymodels/
 src/myevents/
 src/mycommands/
+package-lock.json
