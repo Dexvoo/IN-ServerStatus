@@ -1,12 +1,12 @@
 # IN-ServerStatus
-
-A discord bot that interacts with [cfx-api](https://github.com/PABLO-1610/cfx-api), Shows with a embed that updates every so often.
-
 <img align="right" src="https://imgur.com/5N3uHl2.png" width=40%>
+<strong>A discord bot that interacts with (https://github.com/PABLO-1610/cfx-api)
 <br>
+Discord JS v14
 <br>
+Slash Commands
 <br>
-**How to install**
+How to install
 
 ```bash
 npm install
