@@ -20,10 +20,10 @@ for (const file of commandFiles)
 
 const rest = new REST({ version: '10' }).setToken(Token);
 
-rest.put(Routes.applicationCommands(ClientID), { body: [] })
+rest.put(Routes.applicationGuildCommand(ClientID, GuildID), { body: [] })
 	.then(() => console.log('Successfully deleted all global commands.'))
 	.catch(console.error);
 
-rest.put(Routes.applicationCommands(ClientID), { body: commands })
+rest.put(Routes.applicationGuildCommand(ClientID, GuildID), { body: commands })
 	.then(() => console.log('Successfully registered global commands.'))
 	.catch(console.error);

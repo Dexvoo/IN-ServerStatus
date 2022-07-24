@@ -1,4 +1,5 @@
 # IN-ServerStatus
+
 <img align="right" src="https://imgur.com/5N3uHl2.png" width=40%>
 <strong>A discord bot that interacts with (https://github.com/PABLO-1610/cfx-api)
 <br>
@@ -28,10 +29,11 @@ FooterImage='https://imgur.com/0KIFmOl.gif'
 # FiveM Server Status
 FiveMEmbedUpdateTime=60 # In Seconds
 FiveMServerID='lm6l84' # https://keymaster.fivem.net/
-# Fill in this once you have got your message you want to embed
 FiveMChannelID=''
-FiveMMessageID=''
 DonationWebsite='https://ind.tebex.io'
+
+# Leave blank for install, once you have the message ID Put it in
+FiveMMessageID=''
 ```
 
 Discord Commands Register
@@ -46,10 +48,4 @@ Starting Bot
 npm run dev
 ```
 
-Discord Command in the channel you wish
-
-```bash
-/serverstatus
-```
-
-Copy the channel id and message id, place it the config. Save any .js file and it will be running!
+Copy the message id of the message inside of the FiveMChannelID, place it the config. Save any .js file and it will be running!
