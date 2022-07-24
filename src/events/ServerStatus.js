@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js')
-const { FooterText, FooterImage, ThumnailImage, EmbedColour, DonationWebsite, FiveMChannelID, FiveMMessageID, FiveMServerID, FiveMEmbedUpdateTime } = process.env
+const { FooterText, FooterImage, ThumnailImage, EmbedColour, DonationWebsite, FiveMChannelID, FiveMMessageID, FiveMServerID, FiveMEmbedUpdateTime, FiveMShowPlayerInformation } = process.env
 const cfx = require('cfx-api');
 module.exports = {
     name: 'ready',
@@ -11,6 +11,7 @@ module.exports = {
         {
             var liveStatus = await cfx.fetchStatus()
             var liveServer = await cfx.fetchServer(FiveMServerID)
+            var showPlayerInfo = (FiveMShowPlayerInformation === 'true')
             if (FiveMChannelID !== '')
             {
                 const liveChannelName = client.channels.cache.find(channel => channel.id == (FiveMChannelID))
@@ -23,17 +24,19 @@ module.exports = {
                         liveChannelName.messages.fetch(FiveMMessageID).then((message) =>
                         {
                             const liveStatusMessage = new EmbedBuilder()
-                                .setThumbnail(ThumnailImage)
-                                .setColor(EmbedColour)
-                                .addFields(
-                                    { name: '• Server Status •', value: 'Online ✅', inline: true },
-                                    { name: '• CFX Status •', value: liveStatus.everythingOk ? "Online ✅" : "Issues ⚠️", inline: true },
-                                    { name: '• Conected Players •', value: `${liveServer.playersCount} / ${liveServer.maxPlayers}`, inline: true },
-                                )
-                                .setFooter({ text: '• Last update: ', iconURL: FooterImage })
-                                .setTimestamp()
-
-                            const livePlayerNames = []
+                            .setThumbnail(ThumnailImage)
+                            .setColor(EmbedColour)
+                            .addFields(
+                                { name: '• Server Status •', value: 'Online ✅', inline: true },
+                                { name: '• CFX Status •', value: liveStatus.everythingOk ? "Online ✅" : "Issues ⚠️", inline: true },
+                                { name: '• Conected Players •', value: `${liveServer.playersCount} / ${liveServer.maxPlayers}`, inline: true },
+                            )
+                            .setFooter({ text: '• Last update: ', iconURL: FooterImage })
+                            .setTimestamp()
+                        
+                            if (showPlayerInfo === true) 
+                            {
+                                const livePlayerNames = []
                             for (var player in liveServer.players)
                             {
                                 livePlayerNames.push(`ID: ${liveServer.players[player].id} | ${liveServer.players[player].name}\n`)
@@ -42,6 +45,7 @@ module.exports = {
                             for (let i = 0; i < livePlayerNames.length; i += 10)
                             {
                                 liveStatusMessage.addFields({ name: 'Player Information', value: `${livePlayerNames.sort().slice(i, i + 10).join('')}`, inline: true },)
+                            }
                             }
                             message.edit({ embeds: [liveStatusMessage] });
                         })
@@ -62,6 +66,12 @@ module.exports = {
                                 )
                                 .setFooter({ text: '• Last update: ', iconURL: FooterImage })
                                 .setTimestamp()
+                                if (showPlayerInfo === true) 
+                                {
+                                    liveStatusMessage.addFields(
+                                        { name: 'Player Information', value: `None to Display`, inline: false },
+                                    )
+                                }
                             message.edit({ embeds: [liveStatusMessage] });
                         })
                     }

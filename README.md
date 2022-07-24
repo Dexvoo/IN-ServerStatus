@@ -29,6 +29,7 @@ FooterImage='https://imgur.com/0KIFmOl.gif'
 # FiveM Server Status
 FiveMEmbedUpdateTime=60 # In Seconds
 FiveMServerID='lm6l84' # https://keymaster.fivem.net/
+FiveMShowPlayerInformation=false # or true
 FiveMChannelID=''
 DonationWebsite='https://ind.tebex.io'
 
