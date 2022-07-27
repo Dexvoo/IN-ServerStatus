@@ -14,6 +14,7 @@
   },
   "scripts": {
     "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
     "commands": "node src/deploy-commands.js"
   },
   "keywords": [],
